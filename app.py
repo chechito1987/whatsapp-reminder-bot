@@ -29,14 +29,14 @@ def webhook():
         mensaje = data["entry"][0]["changes"][0]["value"]["messages"][0]["text"]["body"]
         numero = data["entry"][0]["changes"][0]["value"]["messages"][0]["from"]
 
-        print("Mensaje recibido:", mensaje)
+                print("Mensaje recibido:", mensaje)
 
-        respuesta = "Hola Sergio 👋"
+        if "hola" in mensaje.lower():
+            print("Responder: Hola Sergio 👋")
 
-       if "recordar" in mensaje.lower():
-          respuesta = f"✅ Recordatorio guardado: {mensaje}"
-          print(respuesta)
-
+        if "recordar" in mensaje.lower():
+            respuesta = f"✅ Recordatorio guardado: {mensaje}"
+            print(respuesta)
         requests.post(
             f"https://graph.facebook.com/v25.0/{PHONE_NUMBER_ID}/messages",
             headers={
