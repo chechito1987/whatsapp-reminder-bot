@@ -34,7 +34,7 @@ def webhook():
         respuesta = "Hola Sergio 👋"
 
         if "recordar" in mensaje.lower():
-            respuesta = "Perfecto, dime qué quieres recordar ⏰"
+    respuesta = f"✅ Recordatorio guardado:\n{mensaje}"
 
         requests.post(
             f"https://graph.facebook.com/v25.0/{PHONE_NUMBER_ID}/messages",
